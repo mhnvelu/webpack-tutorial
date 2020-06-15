@@ -2,7 +2,10 @@ const path = require("path");
 var HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+    vendor: "./src/vendor.js",
+  },
   module: {
     rules: [
       {
@@ -24,7 +27,7 @@ module.exports = {
         use: {
           loader: "file-loader", // Loads the file require(imagename.svg)
           options: {
-            name: "[name].[hash].[ext]", // ouput filename is webpack.1g2gg2.svg
+            name: "[name].[hash].[ext]", // ouput filename is imagename.1g2gg2.svg
             outputPath: "imgs", // imgs dir created under target folder
           },
         },
